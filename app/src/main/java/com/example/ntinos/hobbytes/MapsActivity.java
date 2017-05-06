@@ -69,3 +69,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return false;
     }
 }
+
+
+/* I want to be able to click on "InfoWindow" to open a new activity so I can add more information.
+*  Mymap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+               Intent intent = new Intent(MapActivity.this,OtherActivity.class);
+               startActivity(intent);
+
+
+            }
+        });
+* */
