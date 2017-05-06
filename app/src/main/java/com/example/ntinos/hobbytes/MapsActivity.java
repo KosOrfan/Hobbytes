@@ -44,7 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
-
+    //MYcomment
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
