@@ -1,12 +1,14 @@
 package com.example.ntinos.hobbytes;
 
 import android.content.Intent;
+
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,8 +26,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final LatLng DEF = new LatLng(40,22);
     private static final LatLng RND = new LatLng(41,21);
 
-    private FloatingActionButton myFAB;
 
+    private FloatingActionButton myFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
