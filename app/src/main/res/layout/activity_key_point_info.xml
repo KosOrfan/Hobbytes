@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ntinos.hobbytes.KeyPointInfo">
+
+    <TextView
+        android:id="@+id/KpInformation"
+        android:layout_width="407dp"
+        android:layout_height="94dp"
+        android:text="KeyPoint Information"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="HardcodedText,RtlHardcoded"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <TextView
+        android:id="@+id/KpName"
+        android:layout_width="253dp"
+        android:layout_height="35dp"
+        android:text="KeyPoint Name"
+        tools:layout_editor_absoluteY="1dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textAlignment="center" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/KpInformation"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintVertical_bias="0.984" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="395dp"
+        android:layout_height="218dp"
+        android:src="@drawable/sea"
+        app:srcCompat="@drawable/sea"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintHorizontal_bias="1.0"
+        tools:ignore="ContentDescription,MissingConstraints"
+        app:layout_constraintTop_toTopOf="@+id/KpInformation"
+        android:layout_marginTop="102dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

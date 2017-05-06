@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback ,GoogleMap.OnMarkerClickListener{
 
+    public static final String EXTRA_NAME = null;
     private GoogleMap mMap;
     private Marker mDef;
     private Marker mRandom;
@@ -31,7 +32,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -39,28 +39,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         myFAB = (FloatingActionButton) this.findViewById(R.id.floatingActionButton2);
         myFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                Intent intent = new Intent(MapsActivity.this, KeyPoint.class);
+                Intent intent = new Intent(MapsActivity.this, KeyPointInfo.class);
                 startActivity(intent);
             }
         });
     }
 
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Def2").snippet("STuff 2"));
+        //Test Marker init
+        mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
         mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
 
 
@@ -75,7 +66,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onMarkerClick(Marker marker) {
-        Intent intent = new Intent(this,KeyPoint.class);
+
+        //on marker Click event.
+        Intent intent = new Intent(this,KeyPointInfo.class); //Activity1.this
+        //Get marker Info
+        String mName= marker.getTitle();
+        String mSnip = marker.getSnippet();
+        //Build an intent and tranfer the data.
+        intent.putExtra(EXTRA_NAME,mName) ;
+        intent.putExtra("Snippet",mSnip);
+
+        //Start the KeypointINfo Activity
         startActivity(intent);
 
         return false;
