@@ -26,8 +26,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final LatLng RND = new LatLng(41,21);
 
 
-    private FloatingActionButton myFAB;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +34,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        FloatingActionButton myFAB;
+
         myFAB = (FloatingActionButton) this.findViewById(R.id.floatingActionButton2);
         myFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
-                Intent intent = new Intent(MapsActivity.this, KeyPointInfo.class);
-              
+                Intent intent = new Intent(MapsActivity.this, RegisterPoint.class);
                 startActivity(intent);
             }
         });
