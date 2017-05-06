@@ -52,8 +52,7 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MapsActivity">
+        <activity android:name=".MapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -64,7 +63,11 @@
                     android:pathPrefix="/hobbytes"
                     android:scheme="http" />
             </intent-filter>
-            </activity>
+        </activity>
+        <activity
+            android:name=".KeyPoint"
+            android:label="@string/title_activity_key_point"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
