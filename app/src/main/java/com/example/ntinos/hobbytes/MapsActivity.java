@@ -55,7 +55,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Test Marker init
         mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
         mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
+        /*save user input info
 
+                Save it in Shared Preferences and then retrieve it from the other activity.
+
+                To save a String in shared preferences, you can create a method like the following:
+
+                public static void setUsername(Context context, String username) {
+                    SharedPreferences prefs = context.getSharedPreferences("myAppPackage", 0);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("username", username);
+                    editor.commit();
+                 }
+                To retreive it :
+
+                public static String getUsername(Context context) {
+                    SharedPreferences prefs = context.getSharedPreferences("myAppPackage", 0);
+                    return prefs.getString("username", "");
+
+                 }
+
+
+         */
 
         // Add a marker in Sydney and move the camera
         LatLng defMark = new LatLng(41, 23);
