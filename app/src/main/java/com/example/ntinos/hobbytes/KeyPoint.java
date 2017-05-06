@@ -15,7 +15,7 @@ public class KeyPoint extends AppCompatActivity {
         setContentView(R.layout.activity_key_point);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //ButtonUI FIX
+        //ButtonUI FIXES
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
