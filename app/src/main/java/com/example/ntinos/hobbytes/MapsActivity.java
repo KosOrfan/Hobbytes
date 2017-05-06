@@ -39,7 +39,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         myFAB = (FloatingActionButton) this.findViewById(R.id.floatingActionButton2);
         myFAB.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+
                 Intent intent = new Intent(MapsActivity.this, KeyPointInfo.class);
+              
                 startActivity(intent);
             }
         });
@@ -77,6 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         intent.putExtra("Snippet",mSnip);
 
         //Start the KeypointINfo Activity
+
         startActivity(intent);
 
         return false;
