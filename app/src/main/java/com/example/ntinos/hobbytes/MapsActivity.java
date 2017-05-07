@@ -58,8 +58,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             userMarker = mMap.addMarker(new MarkerOptions().position(userLoc).title(KpName).snippet(KpSnip));
         }
         //Test Marker init
-        mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
-        mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
+        mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("KEYPOINT").snippet("KEYPOINT general information"));
+        mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("KEYPOINT2").snippet("KEYPOINT General Information"));
 
         mMap.setOnMarkerClickListener(this);
 
