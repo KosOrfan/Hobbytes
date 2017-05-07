@@ -54,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Double mLong = getIntent().getExtras().getDouble("mlong");
             Double mLang = getIntent().getExtras().getDouble("mlang");
             Marker userMarker;
-            LatLng userLoc = new LatLng(mLong, mLang);
+            LatLng userLoc = new LatLng(mLang, mLong);
             userMarker = mMap.addMarker(new MarkerOptions().position(userLoc).title(KpName).snippet(KpSnip));
         }
         //Test Marker init
