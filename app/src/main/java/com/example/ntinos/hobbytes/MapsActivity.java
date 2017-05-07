@@ -1,13 +1,10 @@
 package com.example.ntinos.hobbytes;
 
 import android.content.Intent;
-
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,15 +14,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback ,GoogleMap.OnMarkerClickListener{
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     public static final String EXTRA_NAME = null;
+    private static final LatLng DEF = new LatLng(40, 22);
+    private static final LatLng RND = new LatLng(41, 21);
     private GoogleMap mMap;
     private Marker mDef;
     private Marker mRandom;
-    private static final LatLng DEF = new LatLng(40,22);
-    private static final LatLng RND = new LatLng(41,21);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         myFAB = (FloatingActionButton) this.findViewById(R.id.floatingActionButton2);
         myFAB.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
+            public void onClick(View v) {
 
                 Intent intent = new Intent(MapsActivity.this, RegisterPoint.class);
                 startActivity(intent);
@@ -51,15 +47,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         if (RegisterPoint.registerPointOpened) {
-           //Get intent from Register
-        String KpName = getIntent().getStringExtra("Name");
-        String KpSnip = getIntent().getExtras().getString("Info");
-        Double mLong = getIntent().getExtras().getDouble("mlong");
-        Double mLang = getIntent().getExtras().getDouble("mlang");
-        Marker userMarker;
-        LatLng userLoc = new LatLng(mLong, mLang);
-        userMarker = mMap.addMarker(new MarkerOptions().position(userLoc).title(KpName).snippet(KpSnip));
-    }
+
+            //Get intent from Register
+            String KpName = getIntent().getStringExtra("Name");
+            String KpSnip = getIntent().getExtras().getString("Info");
+            Double mLong = getIntent().getExtras().getDouble("mlong");
+            Double mLang = getIntent().getExtras().getDouble("mlang");
+            Marker userMarker;
+            LatLng userLoc = new LatLng(mLong, mLang);
+            userMarker = mMap.addMarker(new MarkerOptions().position(userLoc).title(KpName).snippet(KpSnip));
+        }
         //Test Marker init
         mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
         mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
@@ -76,13 +73,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public boolean onMarkerClick(Marker marker) {
 
         //on marker Click event.
-        Intent intent = new Intent(this,KeyPointInfo.class); //Activity1.this
+        Intent intent = new Intent(this, KeyPointInfo.class); //Activity1.this
         //Get marker Info
-        String mName= marker.getTitle();
+        String mName = marker.getTitle();
         String mSnip = marker.getSnippet();
         //Build an intent and tranfer the data.
-        intent.putExtra(EXTRA_NAME,mName) ;
-        intent.putExtra("Snippet",mSnip);
+        intent.putExtra(EXTRA_NAME, mName);
+        intent.putExtra("Snippet", mSnip);
 
         //Start the KeypointINfo Activity
 
