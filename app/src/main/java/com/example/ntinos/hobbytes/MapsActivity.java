@@ -54,16 +54,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Double mLong = getIntent().getExtras().getDouble("mlong");
             Double mLang = getIntent().getExtras().getDouble("mlang");
             Marker userMarker;
-            LatLng userLoc = new LatLng(mLong, mLang);
+            LatLng userLoc = new LatLng(mLang, mLong);
             userMarker = mMap.addMarker(new MarkerOptions().position(userLoc).title(KpName).snippet(KpSnip));
         }
         //Test Marker init
         mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
         mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
-        // Add a marker in Sydney and move the camera
-        LatLng defMark = new LatLng(41, 23);
-        mMap.addMarker(new MarkerOptions().position(defMark).title("Default Marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(defMark));
+
         mMap.setOnMarkerClickListener(this);
 
     }
