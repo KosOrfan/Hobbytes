@@ -60,10 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Test Marker init
         mDef = mMap.addMarker(new MarkerOptions().position(DEF).title("Plateia").snippet("PLATEIAPLATEIAPLATEIAAAA"));
         mRandom = mMap.addMarker(new MarkerOptions().position(RND).title("Def3").snippet("STuff 1"));
-        // Add a marker in Sydney and move the camera
-        LatLng defMark = new LatLng(41, 23);
-        mMap.addMarker(new MarkerOptions().position(defMark).title("Default Marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(defMark));
+
         mMap.setOnMarkerClickListener(this);
 
     }

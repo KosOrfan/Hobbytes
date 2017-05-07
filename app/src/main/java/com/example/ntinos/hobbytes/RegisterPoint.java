@@ -1,5 +1,6 @@
 package com.example.ntinos.hobbytes;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,7 +33,6 @@ public class RegisterPoint extends AppCompatActivity implements GoogleApiClient.
     GoogleApiClient mGoogleApiClient;
     String path;
     Location mLastLocation;
-    LatLng mLocation;
     Double mLat;
     Double mLong ;
 
@@ -88,7 +88,7 @@ public class RegisterPoint extends AppCompatActivity implements GoogleApiClient.
                 //Build an intent and tranfer the data.
                 intent.putExtra("Name", nameText.getText().toString());
                 intent.putExtra("Info", infoText.getText().toString());
-                intent.putExtra("location", mLocation);
+
                 intent.putExtra("mlong", mLong);
                 intent.putExtra("mlang", mLat);
 
@@ -141,7 +141,13 @@ public class RegisterPoint extends AppCompatActivity implements GoogleApiClient.
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         //Call get location method
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        final int accessFineLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        final boolean accessFineLocationPermissionGranted = accessFineLocationPermission != PackageManager.PERMISSION_GRANTED;
+
+        final int accessCoarseLocationPermission = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        final boolean accessCoarseLocationPermissionGranted = accessCoarseLocationPermission != PackageManager.PERMISSION_GRANTED;
+
+        if (accessFineLocationPermissionGranted && accessCoarseLocationPermissionGranted) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -155,7 +161,6 @@ public class RegisterPoint extends AppCompatActivity implements GoogleApiClient.
         if (mLastLocation != null) {
             mLat = mLastLocation.getLatitude();
             mLong = mLastLocation.getLongitude();
-
         }
 
     }
